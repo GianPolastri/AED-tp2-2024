@@ -6,7 +6,7 @@ public class BestEffort {
     //Completar atributos privados
 
     public BestEffort(int cantCiudades, Traslado[] traslados){
-        // Implementar
+        // Comentario de prueba
     }
 
     public void registrarTraslados(Traslado[] traslados){
