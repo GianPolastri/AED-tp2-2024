@@ -24,8 +24,8 @@ public class BestEffort {
     }
 
     public int ciudadConMayorSuperavit(){
-        // Implementar
-        return 0;
+        int superAvit = 0;
+        return superAvit;
     }
 
     public ArrayList<Integer> ciudadesConMayorGanancia(){
