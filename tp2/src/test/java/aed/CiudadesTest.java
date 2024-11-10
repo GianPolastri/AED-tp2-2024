@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +12,11 @@ public class CiudadesTest {
 
     @Test
     void crear_ciudad_y_agregar_valores(){
+
         Ciudades c1 = new Ciudades(0);
+
+        assertEquals(0, c1.getId());
+
         c1.addEarnings(1500);
         c1.addLosses(500);
 
@@ -29,8 +34,12 @@ public class CiudadesTest {
 
     @Test
     void comparar_dos_ciudades(){
+
         Ciudades c1 = new Ciudades(0);
         Ciudades c2 = new Ciudades(1);
+
+        assertEquals(0, c1.getId());
+        assertEquals(1, c2.getId());
 
         c1.addEarnings(1500);
         c1.addLosses(500);
@@ -56,5 +65,18 @@ public class CiudadesTest {
         assertTrue(c1.getLosses() < c2.getLosses());
         assertTrue(c1.getSuperavit() > c2.getSuperavit());
         
+    }
+
+    @Test
+    void crear_ciudades_bulk(){
+        ArrayList<Ciudades> cidades = new ArrayList<>();
+
+        for(int i=0; i < 6; i++){
+            cidades.add(i, new Ciudades(i));
+        }
+
+        for(int i=0; i < 6; i++){
+            assertEquals(i, cidades.get(i).getId());
+        }
     }
 }
