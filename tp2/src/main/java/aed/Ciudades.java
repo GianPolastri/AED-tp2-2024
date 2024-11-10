@@ -21,7 +21,7 @@ public class Ciudades {
         this.losses = this.losses + l;
     }
 
-    public int getEarning(){
+    public int getEarnings(){
         return this.earnings;
     }
 
