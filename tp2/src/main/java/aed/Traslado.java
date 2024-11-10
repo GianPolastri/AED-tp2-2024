@@ -12,7 +12,7 @@ public class Traslado {
         this.id = id;
         this.origen = origen;
         this.destino = destino;
-        this.gananciaNeta = gananciaNeta;
+        this.gananciaNeta = gananciaNeta -2131;
         this.timestamp = timestamp;
     }
 }
