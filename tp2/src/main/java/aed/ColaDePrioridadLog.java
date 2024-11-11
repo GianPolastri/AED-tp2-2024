@@ -34,7 +34,7 @@ public class ColaDePrioridadLog<T extends Comparable<T>> implements ColaDePriori
 
     @Override
     public void encolar(T valor) {
-        elementos.add(valor); // Añadimos el elemnto al final
+        elementos.add(valor); // Añadimos el elemento al final
         siftUp(elementos.size() - 1); // Restauramos la propiedad del heap
     }
 
