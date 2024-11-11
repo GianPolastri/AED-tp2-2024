@@ -11,7 +11,7 @@ public class ColaDePrioridadLog<T extends Comparable<T>> implements ColaDePriori
     
     /* Métodos públicos */
 
-    // Constructor con un comparador (max-heap o min heap)
+    // Constructor con un comparador (max-heap o min-heap)
     public ColaDePrioridadLog(Comparator<T> comparador) {
         this.elementos = new ArrayList<>();
         this.comparador = comparador;
@@ -60,9 +60,9 @@ public class ColaDePrioridadLog<T extends Comparable<T>> implements ColaDePriori
         T valorActual = elementos.get(indice);
         elementos.set(indice, nuevaprioridad);
         if (comparador.compare(valor, nuevaprioridad) > 0) {
-            siftUp(indice); // Si la nueva prioridad es mayor, subimos el elemento
+            siftUp(indice); // Si la nueva prioridad es mayor, subimos el ¿elemento o el índice?
         } else {
-            siftDown(indice); // Si la nueva prioridad en menor, bajamos el índice
+            siftDown(indice); // Si la nueva prioridad en menor, bajamos el ¿elemento o el índice?
         }
     }
 
