@@ -4,90 +4,65 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class ColaDePrioridadLog<T extends Comparable<T>> implements ColaDePrioridad<T> {
-    /* Atibutos privados */
 
-    private ArrayList<T> elementos; // ArrayList para almacenar los elementos
-    private Comparator<T> comparador; // Comparador para el heap (max-heap o min-heap)
+    private ArrayList<T> elementos; 
+    private Comparator<T> comparador; 
     
-    /* Métodos públicos */
 
-    // Constructor con un comparador (max-heap o min-heap)
     public ColaDePrioridadLog(Comparator<T> comparador) {
+        super();
         this.elementos = new ArrayList<>();
         this.comparador = comparador;
     }
 
     // Constructor para crear la cola de prioridad a partir de una secuencia (heapify)
     public ColaDePrioridadLog(T[] secuencia, Comparator<T> comparador) {
+        super();
         this.elementos = new ArrayList<>();
         for (int i = 0; i < secuencia.length; i++) {
             this.elementos.add(secuencia[i]);
         }
         this.comparador = comparador;
-        heapify(); //Convierto el array en un heap
+        heapify(); 
     }
-    
-    @Override
     public ColaDePrioridad<T> colaDePrioridadVacía() {
-        return new ColaDePrioridadLog<>(comparador); // Creo una cola de prioridad con el mismo comparador
+
+        return new ColaDePrioridadLog<>(comparador); 
     }
 
-    @Override
     public void encolar(T valor) {
-        elementos.add(valor); // Añado el elemento al final
-        siftUp(elementos.size() - 1); // Restauro la propiedad del heap
+        elementos.add(valor); 
+        siftUp(elementos.size() - 1); 
     }
 
-    @Override
+
     public T consultarMax() {
-        return elementos.get(0); // El máximo del max-heap es la raíz
+        return elementos.get(0); 
     }
 
-    @Override
-    public T consultarMin() {
-        return elementos.get(0); // El mínimo del min-heap es la raíz
-    }
-
-    @Override
     public T desencolarMax() {
-        T max = elementos.get(0); // La raíz del heap es el máximo (para un max-heap)
-        T ult = elementos.remove(elementos.size() - 1); // Elimino el último valor
-        if (!elementos.isEmpty()) { // Si la secuencia no está vacía
-            elementos.set(0, ult); // Coloco el último valor en la raíz
-            siftDown(0); // Restauro la propiedad del heap
+        T max = elementos.get(0); 
+        T ult = elementos.remove(elementos.size() - 1); 
+        if (!elementos.isEmpty()) { 
+            elementos.set(0, ult); 
+            siftDown(0); 
         }
         return max; 
     }
 
-    @Override
-    public T desencolarMin() {
-        T min = elementos.get(0); // La raíz del heap es el mínimo (para un min-heap)
-        T ult = elementos.remove(elementos.size() - 1); // Elimino el último valor
-        if (!elementos.isEmpty()) { // Si la secuencia no está vacía
-            elementos.set(0, ult); // Coloco el último valor en la raíz
-            siftDown(0); // Restauro la propiedad del heap
-        }
-        return min;
-    }
-
-    @Override
     public void cambiarPrioridad(T valor, T nuevaprioridad) {
-        int indice = elementos.indexOf(valor); // Busco el índice del valor
-        T valorActual = elementos.get(indice); // Obtengo el valor actual en ese índice
-        elementos.set(indice, nuevaprioridad); // Actualizo el valor con la nueva prioridad
+        int indice = elementos.indexOf(valor);
+        T valorActual = elementos.get(indice);
+        elementos.set(indice, nuevaprioridad);
         if (comparador.compare(nuevaprioridad, valorActual) > 0) {
-            siftUp(indice); // Si la nueva prioridad es mayor, muevo el valor hacia arriba del heap
+            siftUp(indice); 
         } else {
-            siftDown(indice); // Si la nueva prioridad en menor, muevo el valor hacia abajo del heap
+            siftDown(indice); 
         }
     }
-
-    @Override
     public int tamaño() {
         return elementos.size();
     }
-
-    /* Métodos privados */
 
     private void swap(int i, int j) {
         T temp = elementos.get(i);
@@ -97,20 +72,20 @@ public class ColaDePrioridadLog<T extends Comparable<T>> implements ColaDePriori
 
     private void siftUp(int indice) {
         while (indice > 0) {
-            int padre = (indice - 1) / 2; // Índice del padre
+            int padre = (indice - 1) / 2; 
             if (comparador.compare(elementos.get(indice), elementos.get(padre)) > 0) {
-                swap(indice, padre); // Si el nodo actual es mayor que el padre, los intercambio
-                indice = padre;      // Muevo el índice hacia el padre
+                swap(indice, padre); 
+                indice = padre;      
             } else {
-                break; // Si el nodo no es mayor que su padre, termino
+                break; 
             }
         }
     }
     
     private void siftDown(int indice) {
-        int hijoIzq = 2 * indice + 1; // Índice del hijo izquierdo
-        int hijoDer = 2 * indice + 2; // Índice del hijo derecho
-        int mayor = indice;           // Asumo que el mayor es índice actual
+        int hijoIzq = 2 * indice + 1; 
+        int hijoDer = 2 * indice + 2; 
+        int mayor = indice;           
         
     }
 
