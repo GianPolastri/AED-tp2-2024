@@ -107,7 +107,6 @@ public class ColaDePrioridadLog<T extends Comparable<T>> implements ColaDePriori
         }
     }
     
-
     private void siftDown(int indice) {
         int hijoIzq = 2 * indice + 1; // Índice del hijo izquierdo
         int hijoDer = 2 * indice + 2; // Índice del hijo derecho
