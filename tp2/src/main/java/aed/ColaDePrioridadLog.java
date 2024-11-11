@@ -7,7 +7,7 @@ public class ColaDePrioridadLog<T extends Comparable<T>> implements ColaDePriori
     /* Atibutos privados */
 
     private ArrayList<T> elementos; // ArrayList para almacenar los elementos
-    private Comparator<T> comparador; // Comparador para el heap (max o min)
+    private Comparator<T> comparador; // Comparador para el heap (max-heap o min-heap)
     
     /* Métodos públicos */
 
