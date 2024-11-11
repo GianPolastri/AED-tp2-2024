@@ -59,7 +59,7 @@ public class ColaDePrioridadLog<T extends Comparable<T>> implements ColaDePriori
         int indice = elementos.indexOf(valor);
         T valorActual = elementos.get(indice);
         elementos.set(indice, nuevaprioridad);
-        if (comparador.compare(valor, nuevaprioridad) > 0) {
+        if (comparador.compare(nuevaprioridad, valorActual) > 0) {
             siftUp(indice); // Si la nueva prioridad es mayor, subimos el ¿elemento o el índice?
         } else {
             siftDown(indice); // Si la nueva prioridad en menor, bajamos el ¿elemento o el índice?
