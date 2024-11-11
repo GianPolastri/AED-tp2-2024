@@ -14,16 +14,28 @@ public interface ColaDePrioridad<T> {
     public void encolar(T valor);
     
     /**
-     * Devuelve el máximo o el mínimo según sea un max-heap o un min-heap
-     * @return máx o mín
+     * Devuelve el máximo de un max-heap 
+     * @return máx
      */
     public T consultarMax();
 
     /**
-     * Saca el valor máximo (o mínimo) de cola y lo devuelve
-     * @return máx o mín
+     * Devuelve el mínimo de un min-heap 
+     * @return mín
+     */
+    public T consultarMin();
+
+    /**
+     * Saca el valor máximo del max-heap y lo devuelve
+     * @return máx
      */
     public T desencolarMax();
+
+    /**
+     * Saca el valor mínimo del min-heap y lo devuelve
+     * @return mín
+     */
+    public T desencolarMin();
 
     /**
      * Dado un valor cambia la prioridad
