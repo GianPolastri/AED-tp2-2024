@@ -96,16 +96,17 @@ public class ColaDePrioridadLog<T extends Comparable<T>> implements ColaDePriori
     }
 
     private void siftUp(int indice) {
-        // Caso base
-        if (indice > 0) {
-            int padre = (indice - 1) / 2;
-            // Si el nodo actual es mayor que el padre, los intercambio
-            if (comparador.compare(elementos.get(indice), elementos.get(padre)) > 0);
-            swap(indice, padre);
-            // Y hago la llamada recursiva para seguir subiendo
-            siftUp(padre);
+        while (indice > 0) {
+            int padre = (indice - 1) / 2; // Índice del padre
+            if (comparador.compare(elementos.get(indice), elementos.get(padre)) > 0) {
+                swap(indice, padre); // Si el nodo actual es mayor que el padre, los intercambio
+                indice = padre;      // Muevo el índice hacia el padre
+            } else {
+                break; // Si el nodo no es mayor que su padre, termino
+            }
         }
     }
+    
 
     private void siftDown(int indice) {
         int hijoIzq = 2 * indice + 1; // Índice del hijo izquierdo
