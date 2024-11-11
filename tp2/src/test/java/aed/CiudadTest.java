@@ -8,12 +8,12 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
-public class CiudadesTest {
+public class CiudadTest {
 
     @Test
     void crear_ciudad_y_agregar_valores(){
 
-        Ciudades c1 = new Ciudades(0);
+        Ciudad c1 = new Ciudad(0);
 
         assertEquals(0, c1.getId());
 
@@ -35,8 +35,8 @@ public class CiudadesTest {
     @Test
     void comparar_dos_ciudades(){
 
-        Ciudades c1 = new Ciudades(0);
-        Ciudades c2 = new Ciudades(1);
+        Ciudad c1 = new Ciudad(0);
+        Ciudad c2 = new Ciudad(1);
 
         assertEquals(0, c1.getId());
         assertEquals(1, c2.getId());
@@ -69,10 +69,10 @@ public class CiudadesTest {
 
     @Test
     void crear_ciudades_bulk(){
-        ArrayList<Ciudades> cidades = new ArrayList<>();
+        ArrayList<Ciudad> cidades = new ArrayList<>();
 
         for(int i=0; i < 6; i++){
-            cidades.add(i, new Ciudades(i));
+            cidades.add(i, new Ciudad(i));
         }
 
         for(int i=0; i < 6; i++){
