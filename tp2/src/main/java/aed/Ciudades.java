@@ -5,7 +5,7 @@ public class Ciudades {
     private int earnings;
     private int losses;
     private int superavit;
-    //? Habria que ver de que no se repitan id de ciudades? Igual si se crean en bulk con un for no haria falta;
+    //? Habria que ver de que no se repitan id de ciudades? Igual si se crean en bulk con un for no haria falta;    
     public Ciudades(int id){
         this.id = id;
         this.earnings = 0;
