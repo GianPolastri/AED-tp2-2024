@@ -1,12 +1,12 @@
 package aed;
 
-public class Ciudades {
+public class Ciudad {
     private int id;
     private int earnings;
     private int losses;
     private int superavit;
-    //? Habria que ver de que no se repitan id de ciudades? Igual si se crean en bulk con un for no haria falta;
-    public Ciudades(int id){
+
+    public Ciudad(int id){
         this.id = id;
         this.earnings = 0;
         this.losses = 0;
