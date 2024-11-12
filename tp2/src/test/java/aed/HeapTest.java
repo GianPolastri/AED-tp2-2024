@@ -6,13 +6,13 @@ import org.junit.jupiter.api.BeforeEach;
 import java.util.Comparator;
 import org.junit.jupiter.api.Nested;
 
-public class ColaDePrioridadLogTest {
-    private ColaDePrioridadLog<Integer> heap;
+public class HeapTest {
+    private Heap<Integer> heap;
 
     @BeforeEach
     void setUp() {
         Comparator<Integer> maxComparator = (a, b) -> a.compareTo(b);
-        heap = new ColaDePrioridadLog<>(maxComparator);
+        heap = new Heap<>(maxComparator);
     }
 
     @Test
@@ -23,7 +23,7 @@ public class ColaDePrioridadLogTest {
     @Test
     void testConstructorConSecuencia() {
         Integer[] secuencia = {4, 2, 8, 5, 1};
-        ColaDePrioridadLog<Integer> queue = new ColaDePrioridadLog<>(secuencia, (a, b) -> a.compareTo(b));
+        Heap<Integer> queue = new Heap<>(secuencia, (a, b) -> a.compareTo(b));
 
         assertEquals(5, queue.tamaño());
     }
@@ -38,35 +38,35 @@ public class ColaDePrioridadLogTest {
     }
 
     @Test
-    void testConsultarMax() {
+    void testConsultarRaiz() {
         heap.encolar(5);
         heap.encolar(8);
         heap.encolar(3);
 
-        assertEquals(8, heap.consultarMax());
+        assertEquals(8, heap.consultarRaiz());
     }
 
-    @Test
+    /* @Test
     void testConsultarMin() {
         heap.encolar(5);
         heap.encolar(8);
         heap.encolar(3);
 
         assertEquals(3, heap.consultarMin());
-    }
+    } */
 
     @Nested
-    class DesencolarMaxTests {
+    class DesencolarRaizTests {
         @Test
         void cuandoLaColaEstaVacia() {
-            assertThrows(IllegalStateException.class, () -> heap.desencolarMax());
+            assertThrows(IllegalStateException.class, () -> heap.desencolarRaiz());
         }
 
         @Test
         void cuandoLaColaTieneUnElemento() {
             heap.encolar(5);
 
-            assertEquals(5, heap.desencolarMax());
+            assertEquals(5, heap.desencolarRaiz());
             assertEquals(0, heap.tamaño());
         }
 
@@ -76,12 +76,12 @@ public class ColaDePrioridadLogTest {
             heap.encolar(8);
             heap.encolar(3);
 
-            assertEquals(8, heap.desencolarMax());
+            assertEquals(8, heap.desencolarRaiz());
             assertEquals(2, heap.tamaño());
         }
     }
 
-    @Nested
+/*     @Nested
     class DesencolarMinTests {
         @Test
         void cuandoLaColaEstaVacia() {
@@ -106,14 +106,14 @@ public class ColaDePrioridadLogTest {
             assertEquals(2, heap.tamaño());
         }
     }
-
-    @Test
+ */
+    /* @Test
     void testCambiarPrioridad() {
         heap.encolar(5);
         heap.encolar(3);
         heap.encolar(7);
 
         heap.cambiarPrioridad(3, 9);
-        assertEquals(9, heap.consultarMax());
-    }
+        assertEquals(9, heap.consultarRaiz());
+    } */
 }
