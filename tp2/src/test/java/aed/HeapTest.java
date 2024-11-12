@@ -1,10 +1,12 @@
 package aed;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 import java.util.Comparator;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 public class HeapTest {
     private Heap<Integer> heap;
@@ -42,8 +44,10 @@ public class HeapTest {
         heap.encolar(5);
         heap.encolar(8);
         heap.encolar(3);
+        heap.encolar(120);
+        heap.encolar(-1210);
 
-        assertEquals(8, heap.consultarRaiz());
+        assertEquals(120, heap.consultarRaiz());
     }
 
     /* @Test

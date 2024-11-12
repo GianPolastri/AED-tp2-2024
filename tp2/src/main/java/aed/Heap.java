@@ -81,7 +81,18 @@ public class Heap<T extends Comparable<T>>{
     private void siftDown(int indice) {
         int hijoIzq = 2 * indice + 1; 
         int hijoDer = 2 * indice + 2; 
-        int mayor = indice;           
+        int mayor = indice;
+        if (hijoIzq < elementos.size() && comparador.compare(elementos.get(hijoIzq), elementos.get(mayor)) > 0) {
+            mayor = hijoIzq;
+        }
+        if(hijoDer < elementos.size() && comparador.compare(elementos.get(hijoIzq),elementos.get(mayor))>0){
+            mayor = hijoDer;
+
+        }
+        if(mayor != indice){
+            swap(indice,mayor);
+            siftDown(mayor);
+        }
         
     }
 
