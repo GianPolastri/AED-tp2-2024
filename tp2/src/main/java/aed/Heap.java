@@ -28,7 +28,8 @@ public class Heap<T extends Comparable<T>>{
 
     public void encolar(T valor) {
         elementos.add(valor); 
-        siftUp(elementos.size() - 1); 
+        siftUp(elementos.size() - 1);
+        System.out.println(this.elementos);
     }
 
 
@@ -82,7 +83,7 @@ public class Heap<T extends Comparable<T>>{
         int hijoIzq = 2 * indice + 1; 
         int hijoDer = 2 * indice + 2; 
         int mayor = indice;
-        if (hijoIzq < elementos.size() && comparador.compare(elementos.get(hijoIzq), elementos.get(mayor)) > 0) {
+        if (hijoIzq < elementos.size() && comparador.compare(elementos.get(hijoIzq), elementos.get(mayor)) > 0){
             mayor = hijoIzq;
         }
         if(hijoDer < elementos.size() && comparador.compare(elementos.get(hijoIzq),elementos.get(mayor))>0){
@@ -101,4 +102,18 @@ public class Heap<T extends Comparable<T>>{
             siftDown(j);
         }
     }
+
+/*@Override
+public String toString() {
+    StringBuilder resultado = new StringBuilder("{");
+    if (!elementos.isEmpty()) {
+        resultado.append(elementos.get(0));
+        for (int i = 1; i < elementos.size(); i++) {
+            resultado.append(", ").append(elementos.get(i));
+        }
+    }
+    resultado.append("}");
+    return resultado.toString();
+}
+*/
 }

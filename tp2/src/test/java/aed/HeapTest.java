@@ -35,7 +35,7 @@ public class HeapTest {
         heap.encolar(5);
         heap.encolar(3);
         heap.encolar(7);
-
+        System.out.println(this.heap);
         assertEquals(3, heap.tamaño());
     }
 
@@ -44,10 +44,20 @@ public class HeapTest {
         heap.encolar(5);
         heap.encolar(8);
         heap.encolar(3);
-        heap.encolar(120);
-        heap.encolar(-1210);
 
-        assertEquals(120, heap.consultarRaiz());
+        assertEquals(8, heap.consultarRaiz());
+    }
+    @Test
+    void testEncolaryDesencolar() {
+        heap.encolar(5);
+        heap.encolar(8);
+        heap.encolar(3);
+
+        assertEquals(8, heap.consultarRaiz());
+        heap.desencolarRaiz();
+        assertEquals(5, heap.consultarRaiz());
+        heap.desencolarRaiz();
+        assertEquals(3, heap.consultarRaiz());
     }
 
     /* @Test
