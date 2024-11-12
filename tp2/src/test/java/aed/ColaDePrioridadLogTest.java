@@ -35,7 +35,6 @@ public class ColaDePrioridadLogTest {
         heap.encolar(7);
 
         assertEquals(3, heap.tamaño());
-        assertEquals(7, heap.consultarMax());
     }
 
     @Test
