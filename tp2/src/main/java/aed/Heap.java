@@ -19,8 +19,8 @@ public class Heap<T extends Comparable<T>>{
     public Heap(T[] secuencia, Comparator<T> comparador) {
         
         this.elementos = new ArrayList<>();
-        for (int i = 0; i < secuencia.length; i++) {
-            this.elementos.add(secuencia[i]);
+        for (T elemento : secuencia) {
+            this.elementos.add(elemento);
         }
         this.comparador = comparador;
         heapify(); 
