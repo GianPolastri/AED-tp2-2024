@@ -77,7 +77,6 @@ public class Heap<T extends Comparable<T>>{
                 swap(indice, padre); 
                 System.out.println("Despues del swap de siftUp: " + this.elementos);
                 indice = padre;
-                //siftUp(indice);
             } else {
                 System.out.println("Padre: " + elementos.get(padre) + " es mas grande que: " + elementos.get(indice));
                 break; 
@@ -90,14 +89,12 @@ public class Heap<T extends Comparable<T>>{
         int hijoDer = 2 * indice + 2; 
         int mayor = indice;
         if (hijoIzq < elementos.size() && comparador.compare(elementos.get(hijoIzq), elementos.get(mayor)) > 0){
-            mayor = hijoIzq;
-            /* swap(mayor, hijoIzq);
-            siftDown(mayor); */
+            swap(mayor, hijoIzq);
+            siftDown(mayor);
         }
-        if(hijoDer < elementos.size() && comparador.compare(elementos.get(hijoIzq/*hijoDer*/),elementos.get(mayor))>0){
-            mayor = hijoDer;
-            /* swap(mayor, hijoDer);
-            siftDown(mayor); */
+        if(hijoDer < elementos.size() && comparador.compare(elementos.get(hijoDer),elementos.get(mayor))>0){
+            swap(mayor, hijoDer);
+            siftDown(mayor);
 
         }
         if(mayor != indice){
@@ -108,7 +105,7 @@ public class Heap<T extends Comparable<T>>{
     }
 
     private void heapify() {
-        for (int j = /* 0 */elementos.size() / 2 -  1; j >= 0/* < this.elementos.size() */; j-- /* ++ */) {
+        for (int j = 0; j < this.elementos.size(); j++) {
             siftDown(j);
         }
     }

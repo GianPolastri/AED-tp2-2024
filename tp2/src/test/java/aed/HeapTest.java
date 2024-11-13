@@ -69,18 +69,19 @@ public class HeapTest {
         for(int i = 2; i < 5; i++){
             queue.encolar(i*3);
         }
-        assertEquals(8, queue.tamaño());
+        queue.encolar(7);
+        queue.encolar(3);
+        assertEquals(10, queue.tamaño());
         //System.out.println(queue.toString());
         assertEquals(12, queue.consultarRaiz());
         queue.desencolarRaiz();
         queue.desencolarRaiz();
         queue.desencolarRaiz();
-        assertEquals(5, queue.tamaño());
+        assertEquals(7, queue.tamaño());
         assertEquals(6, queue.consultarRaiz());
 
 
     }
-
     /* @Test
     void testConsultarMin() {
         heap.encolar(5);
