@@ -1,5 +1,6 @@
 package aed;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -59,7 +60,28 @@ public class HeapTest {
         heap.desencolarRaiz();
         assertEquals(3, heap.consultarRaiz());
     }
+    @Test
+    void EncolarYDesencolarMuchos(){
+        Integer[] secuencia = {4, 2, 8, 5, 1};
+        Heap<Integer> queue = new Heap<>(secuencia, (a, b) -> a.compareTo(b));
 
+        assertEquals(5, queue.tamaño());
+        for(int i = 2; i < 5; i++){
+            queue.encolar(i*3);
+        }
+        queue.encolar(7);
+        queue.encolar(3);
+        assertEquals(10, queue.tamaño());
+        //System.out.println(queue.toString());
+        assertEquals(12, queue.consultarRaiz());
+        queue.desencolarRaiz();
+        queue.desencolarRaiz();
+        queue.desencolarRaiz();
+        assertEquals(7, queue.tamaño());
+        assertEquals(6, queue.consultarRaiz());
+
+
+    }
     /* @Test
     void testConsultarMin() {
         heap.encolar(5);

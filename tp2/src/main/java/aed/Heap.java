@@ -24,12 +24,14 @@ public class Heap<T extends Comparable<T>>{
         }
         this.comparador = comparador;
         heapify(); 
+        System.out.println("Post crear el heap (se usa siftDown): " + this.elementos);
     }
 
     public void encolar(T valor) {
         elementos.add(valor); 
+        System.out.println("Antes del siftUp de encolar: " + this.elementos);
         siftUp(elementos.size() - 1);
-        System.out.println(this.elementos);
+        System.out.println("Cada vez dsp de encolar (se usa siftUp): " + this.elementos);
     }
 
 
@@ -44,6 +46,7 @@ public class Heap<T extends Comparable<T>>{
             elementos.set(0, ult); 
             siftDown(0); 
         }
+        System.out.println(elementos);
         return max; 
     }
 // chequear si lo usamos en algun momento,si no,lo volamos 
@@ -72,8 +75,10 @@ public class Heap<T extends Comparable<T>>{
             int padre = (indice - 1) / 2; 
             if (comparador.compare(elementos.get(indice), elementos.get(padre)) > 0) {
                 swap(indice, padre); 
-                indice = padre;      
+                System.out.println("Despues del swap de siftUp: " + this.elementos);
+                indice = padre;
             } else {
+                System.out.println("Padre: " + elementos.get(padre) + " es mas grande que: " + elementos.get(indice));
                 break; 
             }
         }
@@ -84,10 +89,12 @@ public class Heap<T extends Comparable<T>>{
         int hijoDer = 2 * indice + 2; 
         int mayor = indice;
         if (hijoIzq < elementos.size() && comparador.compare(elementos.get(hijoIzq), elementos.get(mayor)) > 0){
-            mayor = hijoIzq;
+            swap(mayor, hijoIzq);
+            siftDown(mayor);
         }
-        if(hijoDer < elementos.size() && comparador.compare(elementos.get(hijoIzq),elementos.get(mayor))>0){
-            mayor = hijoDer;
+        if(hijoDer < elementos.size() && comparador.compare(elementos.get(hijoDer),elementos.get(mayor))>0){
+            swap(mayor, hijoDer);
+            siftDown(mayor);
 
         }
         if(mayor != indice){
@@ -98,12 +105,12 @@ public class Heap<T extends Comparable<T>>{
     }
 
     private void heapify() {
-        for (int j = elementos.size() / 2 -  1; j >=0; j--) {
+        for (int j = 0; j < this.elementos.size(); j++) {
             siftDown(j);
         }
     }
 
-/*@Override
+@Override
 public String toString() {
     StringBuilder resultado = new StringBuilder("{");
     if (!elementos.isEmpty()) {
@@ -115,5 +122,5 @@ public String toString() {
     resultado.append("}");
     return resultado.toString();
 }
-*/
+
 }
