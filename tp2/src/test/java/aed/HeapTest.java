@@ -74,11 +74,19 @@ public class HeapTest {
         assertEquals(10, queue.tamaño());
         //System.out.println(queue.toString());
         assertEquals(12, queue.consultarRaiz());
-        queue.desencolarRaiz();
-        queue.desencolarRaiz();
-        queue.desencolarRaiz();
+        System.out.println(queue.consultarRaiz());
+        assertEquals(12, queue.desencolarRaiz());
+        System.out.println(queue.consultarRaiz());
+        assertEquals(9, queue.desencolarRaiz());
+        System.out.println(queue.consultarRaiz());
+        assertEquals(8, queue.desencolarRaiz());
         assertEquals(7, queue.tamaño());
-        assertEquals(6, queue.consultarRaiz());
+        assertEquals(7, queue.consultarRaiz());
+
+        while(queue.tamaño() > 0){
+            int raiz = queue.consultarRaiz();
+            assertEquals(raiz, queue.desencolarRaiz());
+        }
 
 
     }

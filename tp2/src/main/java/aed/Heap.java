@@ -24,8 +24,8 @@ public class Heap<T extends Comparable<T>>{
         }
         this.comparador = comparador;
         heapify(); 
-        System.out.println("Post crear el heap (se usa siftDown): " + this.elementos);
-    }
+/*         System.out.println("Post crear el heap (se usa siftDown): " + this.elementos);
+ */    }
 
     public void encolar(T valor) {
         elementos.add(valor); 
@@ -40,6 +40,7 @@ public class Heap<T extends Comparable<T>>{
     }
 
     public T desencolarRaiz() {
+        System.out.println("Se llama a desencolar.");
         T max = elementos.get(0); 
         T ult = elementos.remove(elementos.size() - 1); 
         if (!elementos.isEmpty()) { 
@@ -75,26 +76,33 @@ public class Heap<T extends Comparable<T>>{
             int padre = (indice - 1) / 2; 
             if (comparador.compare(elementos.get(indice), elementos.get(padre)) > 0) {
                 swap(indice, padre); 
-                System.out.println("Despues del swap de siftUp: " + this.elementos);
-                indice = padre;
+/*                 System.out.println("Despues del swap de siftUp: " + this.elementos);
+ */                indice = padre;
             } else {
-                System.out.println("Padre: " + elementos.get(padre) + " es mas grande que: " + elementos.get(indice));
-                break; 
+/*                 System.out.println("Padre: " + elementos.get(padre) + " es mas grande que: " + elementos.get(indice));
+ */                break; 
             }
         }
     }
     
     private void siftDown(int indice) {
+        System.out.println("elementos al entrar al siftDown: " + elementos);
         int hijoIzq = 2 * indice + 1; 
         int hijoDer = 2 * indice + 2; 
         int mayor = indice;
-        if (hijoIzq < elementos.size() && comparador.compare(elementos.get(hijoIzq), elementos.get(mayor)) > 0){
+        int comparadorHijos = 0;
+        if(hijoDer < elementos.size() && hijoIzq < elementos.size()){
+            comparadorHijos = comparador.compare(elementos.get(hijoIzq), elementos.get(hijoDer));
+        }
+        if (hijoIzq < elementos.size() && comparador.compare(elementos.get(hijoIzq), elementos.get(mayor)) > 0 && comparadorHijos >= 0){
             swap(mayor, hijoIzq);
-            siftDown(mayor);
+            System.out.println("Despues del swap con hijoIzq: " + elementos);
+            siftDown(hijoIzq);
         }
         if(hijoDer < elementos.size() && comparador.compare(elementos.get(hijoDer),elementos.get(mayor))>0){
             swap(mayor, hijoDer);
-            siftDown(mayor);
+            System.out.println("Despues del swap con hijoDer: " + elementos);
+            siftDown(hijoDer);
 
         }
         if(mayor != indice){
@@ -110,17 +118,17 @@ public class Heap<T extends Comparable<T>>{
         }
     }
 
-@Override
-public String toString() {
-    StringBuilder resultado = new StringBuilder("{");
-    if (!elementos.isEmpty()) {
-        resultado.append(elementos.get(0));
-        for (int i = 1; i < elementos.size(); i++) {
-            resultado.append(", ").append(elementos.get(i));
+    @Override
+    public String toString() {
+        StringBuilder resultado = new StringBuilder("{");
+        if (!elementos.isEmpty()) {
+            resultado.append(elementos.get(0));
+            for (int i = 1; i < elementos.size(); i++) {
+                resultado.append(", ").append(elementos.get(i));
+            }
         }
+        resultado.append("}");
+        return resultado.toString();
     }
-    resultado.append("}");
-    return resultado.toString();
-}
 
 }
