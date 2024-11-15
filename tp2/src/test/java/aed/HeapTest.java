@@ -90,6 +90,14 @@ public class HeapTest {
 
 
     }
+
+    @Test
+    void desencolarCualquiera(){
+        Integer[] secuencia = {16,35,19,9,11,93,82,42,25,23,68,68};
+        Heap<Integer> queue = new Heap<>(secuencia, (a, b) -> a.compareTo(b));
+
+        
+    }
     /* @Test
     void testConsultarMin() {
         heap.encolar(5);
