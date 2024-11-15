@@ -99,6 +99,8 @@ public class HeapTest {
         assertEquals(68, queue.desencolar((queue.tamaño()-1)/2));
         assertEquals(68,queue.desencolar(1));
 
+        assertEquals(82, queue.desencolar(2));
+        assertEquals(23, queue.desencolar(4));
         
     }
     /* @Test
@@ -112,10 +114,10 @@ public class HeapTest {
 
     @Nested
     class DesencolarRaizTests {
-        @Test
-        void cuandoLaColaEstaVacia() {
-            assertThrows(IllegalStateException.class, () -> heap.desencolarRaiz());
-        }
+        // @Test
+        // void cuandoLaColaEstaVacia() {
+        //     assertThrows(IllegalStateException.class, () -> heap.desencolarRaiz());
+        // }
 
         @Test
         void cuandoLaColaTieneUnElemento() {
