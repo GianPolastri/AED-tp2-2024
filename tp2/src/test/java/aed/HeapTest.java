@@ -91,7 +91,7 @@ public class HeapTest {
             assertEquals(raiz, queue.desencolarRaiz());
         }
 
-
+ 
     }
     /* @Test
     void testConsultarMin() {
