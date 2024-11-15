@@ -96,6 +96,9 @@ public class HeapTest {
         Integer[] secuencia = {16,35,19,9,11,93,82,42,25,23,68,68};
         Heap<Integer> queue = new Heap<>(secuencia, (a, b) -> a.compareTo(b));
 
+        assertEquals(68, queue.desencolar((queue.tamaño()-1)/2));
+        assertEquals(68,queue.desencolar(1));
+
         
     }
     /* @Test

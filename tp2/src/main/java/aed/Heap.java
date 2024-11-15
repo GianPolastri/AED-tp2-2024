@@ -6,7 +6,7 @@ import java.util.Comparator;
 public class Heap<T extends Comparable<T>>{
 
     private ArrayList<T> elementos; 
-    private Comparator<T> comparador; 
+    private Comparator<T> comparador;
     
 
     public Heap(Comparator<T> comparador) {
@@ -22,7 +22,7 @@ public class Heap<T extends Comparable<T>>{
         this.comparador = comparador;
         for (T elemento : secuencia) {
             this.elementos.add(elemento);
-            heapify();
+            heapify(); //? Quizas habria que ver de cambiar heapify por siftDown, para mantener complejidad O(n);
             // siftUp(this.elementos.size() - 1);
         }
         System.out.println("Lista antes de de ordenar: " + this.elementos);
@@ -57,12 +57,13 @@ public class Heap<T extends Comparable<T>>{
     }
 
     public T desencolar(int indice){
-        T maxIncrementado = this.elementos.get(0);
         T desencolado = this.elementos.get(indice);
-        this.elementos.set(indice, maxIncrementado); //! Tengo que buscar la manera de aumentar en 1 el valor, para que sea el maximo y llegue a la raiz, asi es mas facil desencolarlo.
-        siftUp(indice);
-        desencolarRaiz();
-        return desencolado;
+        T ult = this.elementos.get(this.elementos.size()-1);
+        this.elementos.set(indice, ult);
+        this.elementos.remove(this.elementos.size()-1);
+        siftDown(indice);
+        System.out.println("Lista dsp de desencolar del medio: " + this.elementos.toString());
+        return desencolado; 
     }
 // chequear si lo usamos en algun momento,si no,lo volamos 
     public void cambiarPrioridad(T valor, T nuevaprioridad) {
