@@ -24,8 +24,8 @@ public class Heap<T extends Comparable<T>>{
         }
         this.comparador = comparador;
         heapify(); 
-/*         System.out.println("Post crear el heap (se usa siftDown): " + this.elementos);
- */    }
+         System.out.println("Post crear el heap (se usa siftDown): " + this.elementos);
+     }
 
     public void encolar(T valor) {
         elementos.add(valor); 
@@ -117,6 +117,7 @@ public class Heap<T extends Comparable<T>>{
             siftDown(j);
         }
     }
+
 
     @Override
     public String toString() {
