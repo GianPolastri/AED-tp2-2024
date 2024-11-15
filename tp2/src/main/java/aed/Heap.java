@@ -19,13 +19,18 @@ public class Heap<T extends Comparable<T>>{
     public Heap(T[] secuencia, Comparator<T> comparador) {
         
         this.elementos = new ArrayList<>();
+        this.comparador = comparador;
         for (T elemento : secuencia) {
             this.elementos.add(elemento);
+            heapify();
+            // siftUp(this.elementos.size() - 1);
         }
-        this.comparador = comparador;
-        heapify(); 
-/*         System.out.println("Post crear el heap (se usa siftDown): " + this.elementos);
- */    }
+        System.out.println("Lista antes de de ordenar: " + this.elementos);
+        // siftUp(this.elementos.size() - 1);
+        // System.out.println("Post crear el heap (se usa siftUp): " + this.elementos);
+        // heapify();
+        // System.out.println("Post crear el heap (se usa siftDown): " + this.elementos);
+    }
 
     public void encolar(T valor) {
         elementos.add(valor); 
@@ -49,6 +54,15 @@ public class Heap<T extends Comparable<T>>{
         }
         System.out.println(elementos);
         return max; 
+    }
+
+    public T desencolar(int indice){
+        T maxIncrementado = this.elementos.get(0);
+        T desencolado = this.elementos.get(indice);
+        this.elementos.set(indice, maxIncrementado); //! Tengo que buscar la manera de aumentar en 1 el valor, para que sea el maximo y llegue a la raiz, asi es mas facil desencolarlo.
+        siftUp(indice);
+        desencolarRaiz();
+        return desencolado;
     }
 // chequear si lo usamos en algun momento,si no,lo volamos 
     public void cambiarPrioridad(T valor, T nuevaprioridad) {
@@ -76,17 +90,17 @@ public class Heap<T extends Comparable<T>>{
             int padre = (indice - 1) / 2; 
             if (comparador.compare(elementos.get(indice), elementos.get(padre)) > 0) {
                 swap(indice, padre); 
-/*                 System.out.println("Despues del swap de siftUp: " + this.elementos);
- */                indice = padre;
+                // System.out.println("Despues del swap de siftUp: " + this.elementos);
+                indice = padre;
             } else {
-/*                 System.out.println("Padre: " + elementos.get(padre) + " es mas grande que: " + elementos.get(indice));
- */                break; 
+                // System.out.println("Padre: " + elementos.get(padre) + " es mas grande que: " + elementos.get(indice));
+                break; 
             }
         }
     }
     
     private void siftDown(int indice) {
-        System.out.println("elementos al entrar al siftDown: " + elementos);
+        // System.out.println("elementos al entrar al siftDown: " + elementos);
         int hijoIzq = 2 * indice + 1; 
         int hijoDer = 2 * indice + 2; 
         int mayor = indice;
@@ -96,12 +110,12 @@ public class Heap<T extends Comparable<T>>{
         }
         if (hijoIzq < elementos.size() && comparador.compare(elementos.get(hijoIzq), elementos.get(mayor)) > 0 && comparadorHijos >= 0){
             swap(mayor, hijoIzq);
-            System.out.println("Despues del swap con hijoIzq: " + elementos);
+            // System.out.println("Despues del swap con hijoIzq: " + elementos);
             siftDown(hijoIzq);
         }
         if(hijoDer < elementos.size() && comparador.compare(elementos.get(hijoDer),elementos.get(mayor))>0){
             swap(mayor, hijoDer);
-            System.out.println("Despues del swap con hijoDer: " + elementos);
+            // System.out.println("Despues del swap con hijoDer: " + elementos);
             siftDown(hijoDer);
 
         }
