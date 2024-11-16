@@ -40,6 +40,6 @@ public class Handle implements Comparable<Handle> {
 
     @Override
     public String toString() {
-        return "Handle {Traslado: " + traslado + ", posReditoHeap: " + posReditoHeap + ", posAntiguedadHeap: " + posAntiguedadHeap + "}";
+        return "Handle {Traslado: " + traslado + ", posPropioHeap: " + posPropioHeap + ", posOtroHeap: " + posOtroHeap + "}";
     }
 }
