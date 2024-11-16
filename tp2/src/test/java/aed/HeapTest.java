@@ -32,12 +32,12 @@ public class HeapTest {
 
     @Test
     void testEncolar() {
-        heap.encolar(1);
-        heap.encolar(2);
-        heap.encolar(3);
-        heap.encolar(4);
-        heap.encolar(5);
-        heap.encolar(6);
+        heap.encolar(1,1);
+        heap.encolar(2,1);
+        heap.encolar(3,1);
+        heap.encolar(4,1);
+        heap.encolar(5,1);
+        heap.encolar(6,1);
         
         System.out.println(this.heap);
         assertEquals(3, heap.tamaño());
