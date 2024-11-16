@@ -3,7 +3,6 @@ package aed;
 import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -40,7 +39,7 @@ public class HeapTest {
         heap.encolar(6);
         
         System.out.println(this.heap);
-        assertEquals(3, heap.tamaño());
+        assertEquals(6, heap.tamaño());
     }
 
     @Test
