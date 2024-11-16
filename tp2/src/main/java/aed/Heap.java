@@ -22,9 +22,12 @@ public class Heap<T extends Comparable<T>>{
         for (T elemento : secuencia) {
             this.elementos.add(elemento);
             heapify(); //? Quizas habria que ver de cambiar heapify por siftDown, para mantener complejidad O(n);
-           
         }
         System.out.println("Lista antes de de ordenar: " + this.elementos);
+        // siftUp(this.elementos.size() - 1);
+        // System.out.println("Post crear el heap (se usa siftUp): " + this.elementos);
+        // heapify();
+        // System.out.println("Post crear el heap (se usa siftDown): " + this.elementos);
     }
 
     public void encolar(T valor) {
