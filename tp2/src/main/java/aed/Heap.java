@@ -30,11 +30,11 @@ public class Heap<T extends Comparable<T>>{
         // System.out.println("Post crear el heap (se usa siftDown): " + this.elementos);
     }
 
-    public void encolar(T valor) {
+    public int encolar(T valor) {
         elementos.add(valor); 
         System.out.println("Antes del siftUp de encolar: " + this.elementos);
-        siftUp(elementos.size() - 1);
-        System.out.println("Cada vez dsp de encolar (se usa siftUp): " + this.elementos);
+        return siftUp(elementos.size() - 1);
+
     }
 
 
@@ -78,25 +78,28 @@ public class Heap<T extends Comparable<T>>{
         return elementos.size();
     }
 
-    private void swap(int i, int j) {
+    private int swap(int i, int j) {
         T tempI = elementos.get(i);
         T tempJ = elementos.get(j);
+        int ultimapos = -1;
         if(tempI.getClass().equals(Handle.class) && tempJ.getClass().equals(Handle.class)){
             Handle handleI = (Handle) tempI;
             handleI.setPosPropioHeap(j);
             Handle handleJ = (Handle) tempJ;
             handleJ.setPosPropioHeap(i);
+            return j;
         }
         elementos.set(i, elementos.get(j));
         elementos.set(j, tempI);
-
+        return j;
     }
 
-    private void siftUp(int indice) {
+    private int siftUp(int indice) {
+        int ultimapos = -1;
         while (indice > 0) {
             int padre = (indice - 1) / 2; 
             if (comparador.compare(elementos.get(indice), elementos.get(padre)) > 0) {
-                swap(indice, padre); 
+                ultimapos = swap(indice, padre); 
                 // System.out.println("Despues del swap de siftUp: " + this.elementos);
                 indice = padre;
             } else {
@@ -104,6 +107,7 @@ public class Heap<T extends Comparable<T>>{
                 break; 
             }
         }
+        return ultimapos;
     }
     
     private void siftDown(int indice) {
@@ -151,5 +155,7 @@ public class Heap<T extends Comparable<T>>{
         resultado.append("}");
         return resultado.toString();
     }
-
+    public T get(int i){
+        return this.elementos.get(i);
+    }
 }

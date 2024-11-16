@@ -11,18 +11,42 @@ public class Superheap {
     }
 
     public void encolar(Traslado traslado) {
-        Handle handle = new Handle(traslado);
-
-        handle.setPosRedito(reditoHeap.tamaño());
-        handle.setPosAntiguedad(antiguedadHeap.tamaño());
-
-        reditoHeap.encolar(handle);
-        antiguedadHeap.encolar(handle);
-        //? Faltaria de alguna manera pasar el indice que le queda al handle en el heap x despues de terminar de encolar y ordenar, para actualizar el valor de la pos en el otro heap. Lo mismo habría que hacer para desencolarMax y desencolar.
-
-        //? Se me ocurre que para saber que indice queda en el heap que se esta trabajando para despues pasarlo y cambiar la variable posOtroHeap, podemos hacer que swap vaya devolviendo los indices que usa y tanto en siftUp como siftDown usar una varaiable que sea indexTracker, donde en la ultima pos debería quedar el indice con el que quedo el elemento despues del ordenamiento, asi podemos pasarlo y actualizar.
-
-        //? El unico problema que estoy viendo es como actualizar constantemente todos los cambios de indice, y ahora no se me estaría ocurriendo como hacerlo (son las 7am lo, hago lo que puedo).
+        Handle mihandle = new Handle(traslado);
+        Handle otroHandle = new Handle(traslado);
+        mihandle.setPosPropioHeap(reditoHeap.tamaño()); 
+        int pos = reditoHeap.encolar(mihandle); 
+        otroHandle.setPosOtroHeap(pos);
+        int posotro = antiguedadHeap.encolar(otroHandle);
+        mihandle.setPosOtroHeap(posotro);
+        actualizarPosEnElOtro(antiguedadHeap, reditoHeap);
     }
 
+
+    public Traslado desencolarRedito(){
+        Handle desencolado = (Handle) reditoHeap.desencolarRaiz();
+        actualizarPosEnElOtro(reditoHeap,antiguedadHeap);
+        antiguedadHeap.desencolar(desencolado.getPosOtroHeap());
+        actualizarPosEnElOtro(antiguedadHeap, reditoHeap);
+        return desencolado.getTraslado();
+
+    }
+
+
+    public Traslado desencolarAntiguedad(){
+        Handle desencolado = (Handle) antiguedadHeap.desencolarRaiz();
+        actualizarPosEnElOtro(antiguedadHeap,reditoHeap);
+        reditoHeap.desencolar(desencolado.getPosOtroHeap());
+        actualizarPosEnElOtro(reditoHeap, antiguedadHeap);
+        return desencolado.getTraslado();
+
+    }
+    public void actualizarPosEnElOtro(Heap h1,Heap h2){
+        for(int i = 0; i<h1.tamaño();i++){
+            Handle actual = (Handle)h1.get(i);
+            int posactual = actual.getPosPropioHeap();
+            int posenelotro = actual.getPosOtroHeap();
+            Handle otro = (Handle)h2.get(posenelotro);
+            otro.setPosOtroHeap(posactual);
+        }
+    }
 }
