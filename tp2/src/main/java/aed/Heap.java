@@ -79,9 +79,17 @@ public class Heap<T extends Comparable<T>>{
     }
 
     private void swap(int i, int j) {
-        T temp = elementos.get(i);
+        T tempI = elementos.get(i);
+        T tempJ = elementos.get(j);
+        if(tempI.getClass().equals(Handle.class) && tempJ.getClass().equals(Handle.class)){
+            Handle handleI = (Handle) tempI;
+            handleI.setPosPropioHeap(j);
+            Handle handleJ = (Handle) tempJ;
+            handleJ.setPosPropioHeap(i);
+        }
         elementos.set(i, elementos.get(j));
-        elementos.set(j, temp);
+        elementos.set(j, tempI);
+
     }
 
     private void siftUp(int indice) {
