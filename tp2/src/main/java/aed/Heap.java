@@ -17,13 +17,11 @@ public class Heap<T extends Comparable<T>>{
 
     // Constructor para crear la cola de prioridad a partir de una secuencia (heapify)
     public Heap(T[] secuencia, Comparator<T> comparador) {
-        
         this.elementos = new ArrayList<>();
         this.comparador = comparador;
         for (T elemento : secuencia) {
             this.elementos.add(elemento);
             heapify(); //? Quizas habria que ver de cambiar heapify por siftDown, para mantener complejidad O(n);
-            // siftUp(this.elementos.size() - 1);
         }
         System.out.println("Lista antes de de ordenar: " + this.elementos);
         // siftUp(this.elementos.size() - 1);

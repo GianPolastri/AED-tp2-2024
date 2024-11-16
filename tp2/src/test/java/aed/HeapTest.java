@@ -1,6 +1,5 @@
 package aed;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -33,9 +32,13 @@ public class HeapTest {
 
     @Test
     void testEncolar() {
-        heap.encolar(5);
-        heap.encolar(3);
-        heap.encolar(7);
+        heap.encolar(1,1);
+        heap.encolar(2,1);
+        heap.encolar(3,1);
+        heap.encolar(4,1);
+        heap.encolar(5,1);
+        heap.encolar(6,1);
+        
         System.out.println(this.heap);
         assertEquals(3, heap.tamaño());
     }
@@ -88,7 +91,7 @@ public class HeapTest {
             assertEquals(raiz, queue.desencolarRaiz());
         }
 
-
+ 
     }
 
     @Test
