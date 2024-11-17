@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="aed.HeapTest$DesencolarRaizTests" time="0.01" tests="9" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="aed.HeapTest$DesencolarRaizTests" time="0.013" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="AR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-22\bin"/>
-    <property name="sun.java.command" value="C:\Users\calve\AppData\Local\Temp\surefire13160817790444533468\surefirebooter-20241116195304067_3.jar C:\Users\calve\AppData\Local\Temp\surefire13160817790444533468 2024-11-16T19-53-03_883-jvmRun1 surefire-20241116195304067_1tmp surefire_0-20241116195304067_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\calve\AppData\Local\Temp\surefire475147694000381860\surefirebooter-20241117151911365_3.jar C:\Users\calve\AppData\Local\Temp\surefire475147694000381860 2024-11-17T15-19-11_160-jvmRun1 surefire-20241117151911365_1tmp surefire_0-20241117151911365_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="aed.HeapTest"/>
     <property name="surefire.test.class.path" value="C:\Users\calve\OneDrive\Escritorio\Facultad\aed\AED-tp2-2024\tp2\target\test-classes;C:\Users\calve\OneDrive\Escritorio\Facultad\aed\AED-tp2-2024\tp2\target\classes;C:\Users\calve\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\calve\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\calve\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\calve\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\calve\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\calve\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\calve\AppData\Local\Temp\surefire13160817790444533468\surefirebooter-20241116195304067_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\calve\AppData\Local\Temp\surefire475147694000381860\surefirebooter-20241117151911365_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="22.0.2+9-70"/>
@@ -60,88 +60,128 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="66.0"/>
   </properties>
-  <testcase name="testEncolar" classname="aed.HeapTest" time="0.082">
+  <testcase name="testEncolar" classname="aed.HeapTest" time="0.084">
     <system-out><![CDATA[Antes del siftUp de encolar: [1]
+ULTIMA POS : 120++++++++++++++++
 Antes del siftUp de encolar: [1, 2]
+Padre : 0++++++++++++++++
+Padre : 0++++++++++++++++
+ULTIMA POS : 0++++++++++++++++
 Antes del siftUp de encolar: [2, 1, 3]
+Padre : 0++++++++++++++++
+Padre : 0++++++++++++++++
+ULTIMA POS : 0++++++++++++++++
 Antes del siftUp de encolar: [3, 1, 2, 4]
+Padre : 1++++++++++++++++
+Padre : 1++++++++++++++++
+Padre : 0++++++++++++++++
+Padre : 0++++++++++++++++
+ULTIMA POS : 0++++++++++++++++
 Antes del siftUp de encolar: [4, 3, 2, 1, 5]
+Padre : 1++++++++++++++++
+Padre : 1++++++++++++++++
+Padre : 0++++++++++++++++
+Padre : 0++++++++++++++++
+ULTIMA POS : 0++++++++++++++++
 Antes del siftUp de encolar: [5, 4, 2, 1, 3, 6]
+Padre : 2++++++++++++++++
+Padre : 2++++++++++++++++
+Padre : 0++++++++++++++++
+Padre : 0++++++++++++++++
+ULTIMA POS : 0++++++++++++++++
 {6, 4, 5, 1, 3, 2}
 ]]></system-out>
   </testcase>
   <testcase name="testConstructorVacio" classname="aed.HeapTest" time="0.002"/>
   <testcase name="testConsultarRaiz" classname="aed.HeapTest" time="0.006">
     <system-out><![CDATA[Antes del siftUp de encolar: [5]
+ULTIMA POS : 120++++++++++++++++
 Antes del siftUp de encolar: [5, 8]
+Padre : 0++++++++++++++++
+Padre : 0++++++++++++++++
+ULTIMA POS : 0++++++++++++++++
 Antes del siftUp de encolar: [8, 5, 3]
+Padre : 0++++++++++++++++
+ULTIMA POS : 120++++++++++++++++
 ]]></system-out>
   </testcase>
-  <testcase name="testConstructorConSecuencia" classname="aed.HeapTest" time="0.003">
-    <system-out><![CDATA[Lista antes de de ordenar: [8, 5, 4, 2, 1]
-]]></system-out>
-  </testcase>
-  <testcase name="testEncolaryDesencolar" classname="aed.HeapTest" time="0.002">
+  <testcase name="testConstructorConSecuencia" classname="aed.HeapTest" time="0.003"/>
+  <testcase name="testEncolaryDesencolar" classname="aed.HeapTest" time="0.003">
     <system-out><![CDATA[Antes del siftUp de encolar: [5]
+ULTIMA POS : 120++++++++++++++++
 Antes del siftUp de encolar: [5, 8]
+Padre : 0++++++++++++++++
+Padre : 0++++++++++++++++
+ULTIMA POS : 0++++++++++++++++
 Antes del siftUp de encolar: [8, 5, 3]
-Se llama a desencolar.
+Padre : 0++++++++++++++++
+ULTIMA POS : 120++++++++++++++++
 [5, 3]
-Se llama a desencolar.
 [3]
 ]]></system-out>
   </testcase>
   <testcase name="EncolarYDesencolarMuchos" classname="aed.HeapTest" time="0.004">
-    <system-out><![CDATA[Lista antes de de ordenar: [8, 5, 4, 2, 1]
-Antes del siftUp de encolar: [8, 5, 4, 2, 1, 6]
+    <system-out><![CDATA[Antes del siftUp de encolar: [8, 5, 4, 2, 1, 6]
+Padre : 2++++++++++++++++
+Padre : 2++++++++++++++++
+Padre : 0++++++++++++++++
+ULTIMA POS : 2++++++++++++++++
 Antes del siftUp de encolar: [8, 5, 6, 2, 1, 4, 9]
+Padre : 2++++++++++++++++
+Padre : 2++++++++++++++++
+Padre : 0++++++++++++++++
+Padre : 0++++++++++++++++
+ULTIMA POS : 0++++++++++++++++
 Antes del siftUp de encolar: [9, 5, 8, 2, 1, 4, 6, 12]
+Padre : 3++++++++++++++++
+Padre : 3++++++++++++++++
+Padre : 1++++++++++++++++
+Padre : 1++++++++++++++++
+Padre : 0++++++++++++++++
+Padre : 0++++++++++++++++
+ULTIMA POS : 0++++++++++++++++
 Antes del siftUp de encolar: [12, 9, 8, 5, 1, 4, 6, 2, 7]
+Padre : 3++++++++++++++++
+Padre : 3++++++++++++++++
+Padre : 1++++++++++++++++
+ULTIMA POS : 3++++++++++++++++
 Antes del siftUp de encolar: [12, 9, 8, 7, 1, 4, 6, 2, 5, 3]
+Padre : 4++++++++++++++++
+Padre : 4++++++++++++++++
+Padre : 1++++++++++++++++
+ULTIMA POS : 4++++++++++++++++
 12
-Se llama a desencolar.
 [9, 7, 8, 5, 3, 4, 6, 2, 1]
 9
-Se llama a desencolar.
 [8, 7, 6, 5, 3, 4, 1, 2]
 8
-Se llama a desencolar.
 [7, 5, 6, 2, 3, 4, 1]
-Se llama a desencolar.
 [6, 5, 4, 2, 3, 1]
-Se llama a desencolar.
 [5, 3, 4, 2, 1]
-Se llama a desencolar.
 [4, 3, 1, 2]
-Se llama a desencolar.
 [3, 2, 1]
-Se llama a desencolar.
 [2, 1]
-Se llama a desencolar.
 [1]
-Se llama a desencolar.
 []
 ]]></system-out>
   </testcase>
-  <testcase name="desencolarCualquiera" classname="aed.HeapTest" time="0.002">
-    <system-out><![CDATA[Lista antes de de ordenar: [93, 68, 82, 25, 42, 68, 35, 9, 16, 11, 23, 19]
-Lista dsp de desencolar del medio: [93, 68, 82, 25, 42, 19, 35, 9, 16, 11, 23]
-Lista dsp de desencolar del medio: [93, 42, 82, 25, 23, 19, 35, 9, 16, 11]
-Lista dsp de desencolar del medio: [93, 42, 35, 25, 23, 19, 11, 9, 16]
-Lista dsp de desencolar del medio: [93, 42, 35, 25, 16, 19, 11, 9]
-]]></system-out>
-  </testcase>
-  <testcase name="cuandoLaColaTieneVariosElementos" classname="aed.HeapTest$DesencolarRaizTests" time="0.003">
+  <testcase name="desencolarCualquiera" classname="aed.HeapTest" time="0.002"/>
+  <testcase name="cuandoLaColaTieneVariosElementos" classname="aed.HeapTest$DesencolarRaizTests" time="0.002">
     <system-out><![CDATA[Antes del siftUp de encolar: [5]
+ULTIMA POS : 120++++++++++++++++
 Antes del siftUp de encolar: [5, 8]
+Padre : 0++++++++++++++++
+Padre : 0++++++++++++++++
+ULTIMA POS : 0++++++++++++++++
 Antes del siftUp de encolar: [8, 5, 3]
-Se llama a desencolar.
+Padre : 0++++++++++++++++
+ULTIMA POS : 120++++++++++++++++
 [5, 3]
 ]]></system-out>
   </testcase>
-  <testcase name="cuandoLaColaTieneUnElemento" classname="aed.HeapTest$DesencolarRaizTests" time="0.001">
+  <testcase name="cuandoLaColaTieneUnElemento" classname="aed.HeapTest$DesencolarRaizTests" time="0.002">
     <system-out><![CDATA[Antes del siftUp de encolar: [5]
-Se llama a desencolar.
+ULTIMA POS : 120++++++++++++++++
 []
 ]]></system-out>
   </testcase>

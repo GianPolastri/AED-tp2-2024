@@ -23,7 +23,7 @@ public class Heap<T extends Comparable<T>>{
             this.elementos.add(elemento);
             heapify(); //? Quizas habria que ver de cambiar heapify por siftDown, para mantener complejidad O(n);
         }
-        System.out.println("Lista antes de de ordenar: " + this.elementos);
+       // System.out.println("Lista antes de de ordenar: " + this.elementos);
         // siftUp(this.elementos.size() - 1);
         // System.out.println("Post crear el heap (se usa siftUp): " + this.elementos);
         // heapify();
@@ -32,7 +32,8 @@ public class Heap<T extends Comparable<T>>{
 
     public int encolar(T valor) {
         elementos.add(valor); 
-        System.out.println("Antes del siftUp de encolar: " + this.elementos);
+        //System.out.println("Antes del siftUp de encolar: " + this.elementos);
+
         return siftUp(elementos.size() - 1);
 
     }
@@ -43,14 +44,14 @@ public class Heap<T extends Comparable<T>>{
     }
 
     public T desencolarRaiz() {
-        System.out.println("Se llama a desencolar.");
+       // System.out.println("Se llama a desencolar.");
         T max = elementos.get(0); 
         T ult = elementos.remove(elementos.size() - 1); 
         if (!elementos.isEmpty()) { 
             elementos.set(0, ult); 
             siftDown(0); 
         }
-        System.out.println(elementos);
+       // System.out.println(elementos);
         return max; 
     }
 
@@ -60,7 +61,7 @@ public class Heap<T extends Comparable<T>>{
         this.elementos.set(indice, ult);
         this.elementos.remove(this.elementos.size()-1);
         siftDown(indice);
-        System.out.println("Lista dsp de desencolar del medio: " + this.elementos.toString());
+        //System.out.println("Lista dsp de desencolar del medio: " + this.elementos.toString());
         return desencolado; 
     }
 // chequear si lo usamos en algun momento,si no,lo volamos 
@@ -75,6 +76,7 @@ public class Heap<T extends Comparable<T>>{
         }
     }
     public int tamaño() {
+       // System.out.println(elementos.size());
         return elementos.size();
     }
 
@@ -87,6 +89,8 @@ public class Heap<T extends Comparable<T>>{
             handleI.setPosPropioHeap(j);
             Handle handleJ = (Handle) tempJ;
             handleJ.setPosPropioHeap(i);
+            elementos.set(i, elementos.get(j));
+            elementos.set(j, tempI);
             return j;
         }
         elementos.set(i, elementos.get(j));
@@ -95,22 +99,27 @@ public class Heap<T extends Comparable<T>>{
     }
 
     private int siftUp(int indice) {
-        int ultimapos = -1;
+        int ultimapos = indice;
+       // System.out.println(indice);
         while (indice > 0) {
             int padre = (indice - 1) / 2; 
+           
             if (comparador.compare(elementos.get(indice), elementos.get(padre)) > 0) {
-                ultimapos = swap(indice, padre); 
+                ultimapos = swap(indice, padre);
                 // System.out.println("Despues del swap de siftUp: " + this.elementos);
                 indice = padre;
+               
             } else {
                 // System.out.println("Padre: " + elementos.get(padre) + " es mas grande que: " + elementos.get(indice));
                 break; 
             }
         }
+        
         return ultimapos;
     }
     
-    private void siftDown(int indice) {
+    private int siftDown(int indice) {
+        int ultimapos = indice;
         // System.out.println("elementos al entrar al siftDown: " + elementos);
         int hijoIzq = 2 * indice + 1; 
         int hijoDer = 2 * indice + 2; 
@@ -120,21 +129,21 @@ public class Heap<T extends Comparable<T>>{
             comparadorHijos = comparador.compare(elementos.get(hijoIzq), elementos.get(hijoDer));
         }
         if (hijoIzq < elementos.size() && comparador.compare(elementos.get(hijoIzq), elementos.get(mayor)) > 0 && comparadorHijos >= 0){
-            swap(mayor, hijoIzq);
+            ultimapos = swap(mayor, hijoIzq);
             // System.out.println("Despues del swap con hijoIzq: " + elementos);
             siftDown(hijoIzq);
         }
         if(hijoDer < elementos.size() && comparador.compare(elementos.get(hijoDer),elementos.get(mayor))>0){
-            swap(mayor, hijoDer);
+            ultimapos = swap(mayor, hijoDer);
             // System.out.println("Despues del swap con hijoDer: " + elementos);
             siftDown(hijoDer);
 
         }
         if(mayor != indice){
-            swap(indice,mayor);
+            ultimapos = swap(indice,mayor);
             siftDown(mayor);
         }
-        
+        return ultimapos;
     }
 
     private void heapify() {

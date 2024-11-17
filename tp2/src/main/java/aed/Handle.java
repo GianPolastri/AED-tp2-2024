@@ -37,6 +37,7 @@ public class Handle implements Comparable<Handle> {
     public int compareTo(Handle other) {
         return Integer.compare(this.traslado.gananciaNeta, other.traslado.gananciaNeta);
     }
+    
 
     @Override
     public String toString() {
