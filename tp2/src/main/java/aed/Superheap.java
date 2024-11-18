@@ -45,7 +45,7 @@ public class Superheap {
         actualizarPosEnElOtro(reditoHeap,antiguedadHeap);
         Handle nashei = antiguedadHeap.desencolar(desencolado.getPosOtroHeap());
         actualizarPosEnElOtro(antiguedadHeap, reditoHeap);
-        return desencolado.getTraslado();
+            return desencolado.getTraslado();
 
     }
 
@@ -55,7 +55,7 @@ public class Superheap {
         reditoHeap.desencolar(desencolado.getPosOtroHeap());
         actualizarPosEnElOtro(antiguedadHeap,reditoHeap);
         actualizarPosEnElOtro(reditoHeap, antiguedadHeap);
-        return desencolado.getTraslado();
+            return desencolado.getTraslado();
 
     }
     public void actualizarPosEnElOtro(Heap h1,Heap h2){

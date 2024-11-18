@@ -4,7 +4,6 @@ public class Handle implements Comparable<Handle> {
     private Traslado traslado;
     private int posOtroHeap;
     private int posPropioHeap;
-    //? Idealmente me gustaria que las variables de pos se llamen distinto. Al momento de actualizar en el swap, se hace engorroso pensar en cual es la posicion a modificar. Quizas usando una sola variable para indicar la pos en el otro heap alcanza. La pos en el heap que se trabaja ya se tiene para trabajar en el propio heap. Agrego las variables con los nombres cambiados para poder avanzar un poco.
 
     public Handle(Traslado traslado) {
         this.traslado = traslado;
